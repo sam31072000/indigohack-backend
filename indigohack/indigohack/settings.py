@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'flight_booking',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ DATABASES = {
         'NAME': 'sampledb',  
         'USER': 'mysql',  
         'PASSWORD': 'password',  
-        'HOST': '127.0.0.1',  
+        'HOST': 'mysql',  
         'PORT': '3306'
     }  
 } 
