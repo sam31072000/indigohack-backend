@@ -7,7 +7,7 @@ class AbstractModel(models.Model):
 	updated_at = models.DateTimeField(auto_now=True,None=True)
 	is_active = models.BooleanField(default=True)
 
-class Booking(AbstractModel):
+class BookingModel(AbstractModel):
 
     booking_type = (
         ("ONE_WAY", "ONE_WAY"),
@@ -15,7 +15,7 @@ class Booking(AbstractModel):
         ("MULTI_WAY", "MULTI_WAY"),
     )
 
-    booking_status = (
+    success_status = (
         ("SUCCESS", "SUCCESS"),
         ("FAILED", "FAILED"),
         ("CANCELLED", "CANCELLED"),
@@ -25,9 +25,11 @@ class Booking(AbstractModel):
     flight_id = models.IntegerField(default=None, None=True, blank=False)
     num_of_passengers = models.IntegerField(default=None, None=True, blank=False)
     contact_phone_number = models.CharField(max_length=10, default=None, None=True, blank=False)
-    booking_status = models.CharField(max_length=10, choices=booking_status, default=None, None=True, blank=False)
+    booking_status = models.CharField(max_length=10, choices=success_status, default=None, None=True, blank=False)
+    payment_status = models.CharField(max_length=10, choices=success_status, default=None, None=True, blank=False)
+    booked_on = models.DateTimeField(auto_now=True,None=True)
 
-class Flights(AbstractModel):
+class FlightsModel(AbstractModel):
     destination_place_id = models.IntegerField(default=None, None=True, blank=False)
     source_place_id = models.IntegerField(default=None, None=True, blank=False)
     departure_time = models.DateTimeField(default=None, None=True, blank=False)

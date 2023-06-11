@@ -19,4 +19,5 @@ from flight_booking.views import BookFlightView
 
 booking_urls = [
     path('book-flight', BookFlightView.as_view(), name="book-flight")
+    path('book-flight/<int:booking-id>', BookFlightView.as_view(), name="book-flight")
 ]
